@@ -6,7 +6,9 @@
       "esnext"
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -24,7 +26,8 @@
         "name": "next"
       }
     ],
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
