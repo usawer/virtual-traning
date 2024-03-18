@@ -1,17 +1,18 @@
 'use client';
 import { useEffect, useState } from "react";
 import FelhTabs from "../../components/layout/FelhTabs";
-import {usePofile} from "@/components/UsePorfile"
+import {useProfile} from "@/components/UsePorfile"
 
 import toast from "react-hot-toast";
 
 export default function Kategoriak(){
-    const [ujKategoria, setUjKategoria] = useState('');
+    const [kategoriaNev, setKategorianev] = useState('');
     const [categories, setCategories] = useState([]);
-    const {loading:profilLoading, data:profilData} = usePofile();
+    const {loading:profilLoading, data:profilData} = useProfile();   
+    const [szerkeszettKatekoria, setSzerkesztettKategoria] = useState(null)
 
     useEffect(()=> {
-      fetchKategoriak
+      fetchKategoriak();
     }, []);
     function fetchKategoriak(){
         fetch('/api/kategoria').then(res => {
@@ -23,24 +24,29 @@ export default function Kategoriak(){
     async function addCategory(ev){
         ev.preventDefault();
         const creationPromise = new Promise(async(resolve, reject)=>{
+          const data = {name:kategoriaNev};
+            if(szerkeszettKatekoria){
+              data._id = szerkeszettKatekoria._id;
+            }
             const response = await fetch('/api/kategoria',{
-                method:'POST',
+                method: szerkeszettKatekoria ? 'PUT' : 'POST',
                 headers:{
                     'Content-Type':'application/json'
                 },
-                body: JSON.stringify({name:ujKategoria})
+                body: JSON.stringify(data), 
             } );
-            setCategories('');
+            setKategorianev('');
             fetchKategoriak();
+            setSzerkesztettKategoria(null);
             if(response.ok) 
             resolve();
          else 
          reject();
         });
       await  toast.promise(creationPromise, {
-        loading:'Új kategória keszítése folyamatban...',
-        success:'Sikeresen létrehozva az új Kategória',
-        error: 'Sajnos nem sikerült létrehozni',
+        loading: szerkeszettKatekoria ? 'Frissités folyamatban...' :'Új kategória keszítése folyamatban...',
+        success: szerkeszettKatekoria ? 'Sikeres szerkesztés': 'Sikeresen létrehozva az új Kategória',
+        error: szerkeszettKatekoria ? 'Sajnso nem sikerült frissíteni': 'Sajnos nem sikerült létrehozni',
         });
    
     }
@@ -60,11 +66,15 @@ export default function Kategoriak(){
             <form className="mt-8" onSubmit={addCategory}>
                 <div className="flex gap-2 items-end">
                     <div className="grow">
-                    <label>Új Kategoriak neve</label>
-                    <input type="text" value={ujKategoria} onChange={ev => setUjKategoria(ev.target.value)}/>
+                    <label>{szerkeszettKatekoria ? 'Frissit' : "Új Kategoriak neve"} 
+                    {szerkeszettKatekoria &&( 
+                    <>: <b>{szerkeszettKatekoria.name}</b></>
+                    )}
+                    </label>
+                    <input type="text" value={kategoriaNev} onChange={ev => setKategorianev(ev.target.value)}/>
                     </div>
                      <div className="pb-2">
-                        <button className="border border-primary" type="submit">Hozzáadás</button>
+                        <button className="border border-primary" type="submit">{szerkeszettKatekoria? 'Frissit' : 'Készít'}</button>
                      </div>
                 </div>
                
@@ -75,18 +85,18 @@ export default function Kategoriak(){
         {categories?.length > 0 && categories.map(c => (
           <div
             key={c._id}
-            className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 mb-1 items-center">
+            className="bg-gray-300 rounded-xl p-2 px-4 flex gap-1 mb-1 items-center">
             <div className="grow">
               {c.name}
             </div>
             <div className="flex gap-1">
               <button type="button"
                       onClick={() => {
-                        setEditedCategory(c);
-                        setCategoryName(c.name);
+                        setSzerkesztettKategoria(c);
+                        setKategorianev(c.name);
                       }}
               >
-                Edit
+                Szerkeszt
               </button>
              
             </div>

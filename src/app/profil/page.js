@@ -1,15 +1,14 @@
 'use client';
 import { useSession } from "next-auth/react"
 import { redirect } from "next/navigation";
-import Image from "next/image";
+
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { rejects } from "assert";
-import { resolve } from "path";
-import { data } from "autoprefixer";
-import Link from "next/link";
+
+import KepFeltoltes from "../../components/layout/KepFeltoltes"
 import FelhTabs from "@/components/layout/FelhTabs";
-import { set } from "mongoose";
+
+
 export default function ProfilPage() {
     const session = useSession();
     const [username, setusername] = useState ('');
@@ -57,39 +56,7 @@ export default function ProfilPage() {
         error: 'Nem sikerült a mentés!',
       });
     }
-     async function handleFileChange(ev){
-        const files = ev.target.files;
-        if (files?.length === 1){
-            const data = new FormData;
-            data.set('file', files[0])
-        const feltoltesPromise = fetch('/api/upload',{
-            
-                method: 'POST', 
-                body: data,
-                
-                }).then(response => {
-                    if(response.ok){
-                       return response.json().then(link =>{
-                            setImage(link);
-                           
-                        })
-                       
-                       
-                     
-                    } throw new Error (' Nem sikerült feltölteni!');
-                });
-                   
-            
-        
-       
-                await toast.promise(feltoltesPromise, {
-                    loading: 'Feltöltés...',
-                    success: 'Feltöltés sikreses!',
-                    error: 'Feltöltés nem sikerült!',
-                });
-           
-        }
-    }
+    
 
     if (status === 'loading'|| !profilFetched ){
         return 'Loading...';
@@ -109,15 +76,8 @@ export default function ProfilPage() {
                     <div className="flex gap-2  ">
                         <div > 
                         <div className="p-2 rounded-lg relative max-w-[150px]" >
-                            {image && (
-                        <Image className="rounded-lg w-full h-full mb-1" src={image} width={250} height={250}  alt="User Image" />
-
-                            )}
-                        <label>
-                        <input type="file" className="hidden" onChange={handleFileChange}/>
-                        <span className="block border border-red-500 rounded-lg p-2 text-center cursor-pointer">Szerkesztés</span>
-                        </label>
-                        
+                           
+                            <KepFeltoltes link={image}  setLink={setImage}/>
                         </div>
                         
                         </div>

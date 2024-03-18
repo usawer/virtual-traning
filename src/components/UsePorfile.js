@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export  function usePofile (){
+export function useProfile() {
     const [data, setData] = useState(false);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -12,5 +12,5 @@ export  function usePofile (){
             });
         })
     }, []);
-     return{loading, data};
+    return {loading, data};
 }
