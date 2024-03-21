@@ -11,14 +11,18 @@ select,
 input[type="email"],
 input[type="password"],
 input[type="tel"],
-input[type="text"] {
+input[type="text"],
+input[type="list"],
+input[type="number"] {
     @apply block w-full mb-2 rounded-xl;
     @apply border p-2 border-gray-300 bg-gray-100;
 }
 input[type="email"]:disabled,
 input[type="password"]:disabled,
 input[type="tel"]:disabled,
-input[type="text"]:disabled {
+input[type="text"]:disabled,
+input[type="list"]:disabled,
+input[type="number"]:disabled {
     @apply bg-gray-300 border-0 cursor-not-allowed text-gray-500;
 }
 label{
@@ -47,3 +51,4 @@ div.tabs > *.active{
 .flying-button-parent button{
     @apply border-primary bg-primary text-white rounded-full;
 }
+
