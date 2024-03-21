@@ -12,6 +12,7 @@
     "@auth/mongodb-adapter": "^2.0.9",
     "@aws-sdk/client-s3": "^3.523.0",
     "bcrypt": "^5.1.1",
+    "lodash": "^4.17.21",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
     "next": "14.0.3",
@@ -20,6 +21,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.22.3",
     "uniqid": "^5.4.0"
   },
   "devDependencies": {

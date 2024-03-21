@@ -12,7 +12,12 @@ export default function FelhTabs({isAdmin}){
         {isAdmin &&(
             <>
             <Link className={path === '/kategoria' ? 'active' : ''} href={'/kategoria'}>Kategoriak</Link>
-            <Link  className={path === '/edzesek' ? 'active' : ''} href={'/edzesek'}>Edzesek</Link>
+            <Link
+            href={'/edzesek'}
+            className={path.includes('edzesek') ? 'active' : ''}
+          >
+            Edzesek
+          </Link>
             <Link  className={path === '/felhasznalok' ? 'active' : ''} href={'/felhasznalok'}>Felhasznalok</Link>
             </>
         )}

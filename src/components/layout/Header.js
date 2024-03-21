@@ -19,7 +19,7 @@ export default function Heeader(){
       <Link className="text-primary font-semibold text-2xl"href={'/'}>VirtualTraning</Link>
          <Link href={'/'}>Kezőlap</Link>
          <Link href={'/Calculators'}>Navigáció</Link>
-         <Link href={''}>További</Link>
+         <Link href={'/Rolunk'}>További</Link>
          <Link href={''}>Kontakt</Link>
          
       </nav>
