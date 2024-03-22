@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import FelhTabs from "../../components/layout/FelhTabs";
 import {useProfile} from "@/components/UsePorfile"
-
+import TorlesGombja from'@/components/TorlesGombja';
 import toast from "react-hot-toast";
 
 export default function Kategoriak(){
@@ -50,7 +50,24 @@ export default function Kategoriak(){
         });
    
     }
-
+    async function TorlesGomb(_id){
+      const promise = new Promise(async(resolve,reject)=>{
+       const  response = await  fetch('/api/kategoria?_id='+_id,{
+          method: 'DELETE'
+        })
+        if(response.ok){
+        resolve();
+        }else{
+        reject()
+        }
+      });
+     await toast.promise(promise, {
+        loading:'Törlés folyamatban...',
+        success:"Sikeres törlés",
+        error:'Nem sikerült törölni',
+      });
+      fetchKategoriak();
+    }
     if(profilLoading){
         return 'Felhasználó adati betöltése....';
     }
@@ -73,19 +90,20 @@ export default function Kategoriak(){
                     </label>
                     <input type="text" value={kategoriaNev} onChange={ev => setKategorianev(ev.target.value)}/>
                     </div>
-                     <div className="pb-2">
+                     <div className="pb-2 flex gap-2">
                         <button className="border border-primary" type="submit">{szerkeszettKatekoria? 'Frissit' : 'Készít'}</button>
+                        <button type="button" onClick={()=> {setSzerkesztettKategoria(null); setKategorianev('');}}>Mégse</button>
                      </div>
                 </div>
                
                 
             </form>
             <div>
-        <h2 className="mt-8 text-sm text-gray-500">Existing categories</h2>
+        <h2 className="mt-8 text-sm text-gray-500">Kategóriak:</h2>
         {categories?.length > 0 && categories.map(c => (
           <div
             key={c._id}
-            className="bg-gray-300 rounded-xl p-2 px-4 flex gap-1 mb-1 items-center">
+            className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 mb-1 items-center">
             <div className="grow">
               {c.name}
             </div>
@@ -98,7 +116,7 @@ export default function Kategoriak(){
               >
                 Szerkeszt
               </button>
-             
+             <TorlesGombja label="Törlés" onDelete={() =>TorlesGomb(c._id)}/>
             </div>
           </div>
         ))}

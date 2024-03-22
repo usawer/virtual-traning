@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-import KepFeltoltes from "../../components/layout/KepFeltoltes"
+import KepFeltoltes from "@/components/layout/Kepfeltoltes";
 import FelhTabs from "@/components/layout/FelhTabs";
 
 

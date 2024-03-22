@@ -1,38 +1,36 @@
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![image](https://github.com/usawer/virtual-traning/assets/54816722/6e1af07d-5c07-4e32-8866-84058797ac3a)
+## Getting Started
 
-# Rendszerkövetelmény
-## Hardver követelmények:
-### Minimális rendszerkövetelmény:
-	Operációs rendszer: Windows 10/Linux/MacOS
-	Processzor: 1 GHz vagy gyorsabb
-	RAM: 2 GB 
-	Merevlemez-terület: 1 GB
-	Videókártya: A DirectX 9-es vagy újabb verziójával kompatibilis.
-	Kijelző: 800x600
-### Ajánlott rendszerkövetelmény:
-	Operációs rendszer: Windows 10/Linux/MacOS
-	Processzor: 2 GHz vagy gyorsabb
-	RAM: 4 GB 
-	Merevlemez-terület: 1 GB
-	Videókártya: A DirectX 9-es vagy újabb verziójával kompatibilis.
-	Kijelző: 1280x1024
- 
- <h1> Szoftver követelmények: </h1>
-  Operációs rendszer<br>
-  Böngésző<br>
-  Visual Studio 
+First, run the development server:
 
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-<h1> 1.	NYISSA MEG A VISUAL STUDIO-T </h1>
-Nyissa meg a Visual Studio-t, importálja be a Virtual Trainer nevezetű mappát, majd indítsa el a terminált és adja ki az NMP install nevezetű utasítást, amint ez lefutott írja be a terminálba NPM run dev nevezetű parancsot
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<h1> 2. PORTON KERESZTÜLI CSATLAKOZÁS A WEBOLDALRA </h1>
-npm run dev beírása után láthat 6 sorral lejjebb egy http://localhost:3000 port. Kattintson ctrl + bal klikk kombinációval erre a portra, így megnyílik a weboldal.
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-<h1>KEZDŐLAP</h1>
-<h3>Általános információk</h3>
-A weboldalunk olyan szolgáltatást nyújt, amelyen a kezdő, illetve a haladó konditerembe járó emberek segítséghez tudnak fordulni. Legyen szó akár teljes edzésterv összerakásáról, gyakorlatok helyes kivitelezéséről, vagy akár egy BMI kalkulációról, illetve napi kalóriabevitel kalkulátorról. A gyakorlatok között kiválogathatja a számára szimpatikus gyakorlatokat, ezeket elmentve össze tud rakni magának egy edzéstervet, amit le is tud menteni a saját profilja alá.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-<h3 align="left">Használt technológiák</h3>
-<p align="left"> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> </p>
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
