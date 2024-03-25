@@ -19,7 +19,7 @@ export default function Header(){
         <Link className="mr-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={'/'}><img className="w-24 h-34" src="/logo.png"></img></Link>
          <Link className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={'/gyakorlatok'}>Gyakorlatok</Link>
          <Link className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={'/kalkulatorok'}>Kalkulátorok</Link>
-         <Link className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={''}>Kapcsolat</Link>
+         <Link className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={'/rolunk'}>Rólunk</Link>
          
       </nav>
       <nav className="flex items-center gap-8 text-gray-500 font-semibold">
