@@ -9,16 +9,13 @@ export default function FelhTabs({isAdmin}){
     return(
         <div className="flex mx-auto gap-2 tabs justify-center ">
         <Link className={path === '/profil' ? 'active' : ''} href={'/profil'}>Profil</Link>
+        <Link  className={path === '/edzeseim' ? 'active' : ''} href={'/felhasznalok'}>Edzeseim</Link>
+
         {isAdmin &&(
             <>
             <Link className={path === '/kategoria' ? 'active' : ''} href={'/kategoria'}>Kategoriak</Link>
-            <Link
-            href={'/edzesek'}
-            className={path.includes('edzesek') ? 'active' : ''}
-          >
-            Edzesek
-          </Link>
-            <Link  className={path === '/felhasznalok' ? 'active' : ''} href={'/felhasznalok'}>Felhasznalok</Link>
+            <Link  className={path === '/edzesek' ? 'active' : ''} href={'/edzesek'}>Edzesek</Link>
+            <Link  className={path.includes('/felhasznalok') ? 'active' : ''} href={'/felhasznalok'}>Felhasznalok</Link>
             </>
         )}
     </div>

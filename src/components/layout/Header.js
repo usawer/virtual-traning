@@ -2,7 +2,7 @@
 import {signOut, useSession} from "next-auth/react";
 import Link from "next/link"
 
-export default function Heeader(){
+export default function Header(){
   
   const session = useSession();
 
@@ -13,22 +13,21 @@ export default function Heeader(){
     username = username.split(' ')[0];
   }
     return(
-        <header className="flex item-center justify-between">
+        <header className="flex mt-2 item-center justify-between p-5 max-w-6xl m-auto">
       
       <nav className="flex items-center gap-8 text-gray-500 font-semibold">
-      <Link className="text-primary font-semibold text-2xl"href={'/'}>VirtualTraning</Link>
-         <Link href={'/'}>Kezőlap</Link>
-         <Link href={'/Calculators'}>Navigáció</Link>
-         <Link href={'/Rolunk'}>További</Link>
-         <Link href={''}>Kontakt</Link>
+        <Link className="mr-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={'/'}><img className="w-24 h-34" src="/logo.png"></img></Link>
+         <Link className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={'/gyakorlatok'}>Gyakorlatok</Link>
+         <Link className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={'/kalkulatorok'}>Kalkulátorok</Link>
+         <Link className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" href={''}>Kapcsolat</Link>
          
       </nav>
       <nav className="flex items-center gap-8 text-gray-500 font-semibold">
         {status === 'authenticated' && (
       <>
       
-      <Link href={'/profil'} className="whitespace-nowrap"> {username}</Link>
-            <button onClick={() => signOut()} className="bg-primary text-white px-6 rounded-full  text-white px-8 py-2">Kijelentkezés</button>
+      <Link href={'/profil'} className="whitespace-nowrap hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">{username}</Link>
+            <button onClick={() => signOut()} callbackURL={'/'} className="bg-primary text-white px-6 rounded-lg  text-white px-8 py-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-white hover:text-black hover:border-solid hover:border hover:border-red-700">Kijelentkezés</button>
    
       </>
    
@@ -36,8 +35,8 @@ export default function Heeader(){
       
       {status === 'unauthenticated' && (
         <>
-       <Link href={'/register'}>Regiszráció</Link>
-      <Link href={'/login'} className="bg-primary text-white px-6 rounded-full  text-white px-8 py-2">Login</Link>
+       <Link href={'/register'} className="hover:text-red-700 focus:text-red-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">Regisztráció</Link>
+      <Link href={'/login'} className="bg-primary text-white px-6 rounded-lg  text-white px-8 py-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-white hover:text-black hover:border-solid hover:border hover:border-red-700">Bejelentkezés</Link>
         </>
         )}
       

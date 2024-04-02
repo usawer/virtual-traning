@@ -10,6 +10,7 @@ import {redirect, useParams} from "next/navigation";
 import TorlesGombja from '@/components/TorlesGombja'
 
 
+
 export default function SzerkesztEdzesItem(){
     const {id} = useParams();
     const [image, setImage] = useState('');
@@ -18,13 +19,14 @@ export default function SzerkesztEdzesItem(){
     const [nehezseg, setNehezseg] = useState('');
     const [redirectToItems, setRedirectToItems ] = useState(false);
     const { loading, data } = useProfile();
-    const [categories, setCategories] = useState([]);
+    const [kategoriak, setKategoriak] = useState([]);
+    const [kategoria, setKategoria] = useState('');
 
     
     useEffect(()=>{
         fetch('/api/kategoria').then(res=>{
             res.json().then(kategoria =>{
-                setCategories(kategoria);
+                setKategoriak(kategoria);
             })
         })
     },[]);
@@ -39,11 +41,11 @@ fetch('/api/edzesek').then(res => {
         setNehezseg(item.nehezseg);
     });
 })
-    }, []);
+    }, [id]);
 
     async function handleFormSubmit(ev) { //Adatbázisba tölti az adott új edzésket
         ev.preventDefault();
-        const data = { image, nev, leiras, nehezseg, _id:id };
+        const data = { image, nev, leiras, nehezseg, _id:id, kategoria,};
         const mentesPromise = new Promise(async(resolve, reject) => {
             const response = await fetch('/api/edzesek', {
                 method: 'PUT',
@@ -115,8 +117,8 @@ fetch('/api/edzesek').then(res => {
                         <label>Edzés leírás</label>
                         <input type="text" value={leiras} onChange={ev => setLeiras(ev.target.value)} />
                         <label>  Kategoriák</label>
-                        <select value={categories} onChange={ev => setCategory(ev.target.value)}>
-            {categories?.length > 0 && categories.map(c => (
+                        <select value={kategoria} onChange={ev => setKategoria(ev.target.value)}>
+            {kategoriak?.length > 0 && kategoriak.map(c => (
               <option key={c._id} value={c._id}>{c.name}</option>
             ))}</select>
                         <label>Edzés szint</label>

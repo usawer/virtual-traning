@@ -17,15 +17,7 @@ export default function HomeMenu(){
         <SectionHeaders subHeader={'Mentés'} mainHeader={'Menü'} />
       
         </div>
-        <div className=" grid grid-cols-3  gap-4 ">
-                <MenuItem/>
-                <MenuItem/>
-                <MenuItem/>
-                <MenuItem/>
-                <MenuItem/>
-                <MenuItem/>
-                
-        </div>
+        
         </section>
     )
 }
