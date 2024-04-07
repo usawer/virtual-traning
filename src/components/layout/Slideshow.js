@@ -1,5 +1,6 @@
 "use client"
 import React from "react";
+import Link from "next/link"
 
 
 export default function Slideshow() {
@@ -41,7 +42,7 @@ export default function Slideshow() {
               <div className="flex flex-col m-auto">
                 <div className="quote m-auto font-bold text-3xl" key={idx}><p>{quotes[idx]}</p></div>
                 <div className="author m-auto text-xl" key={idx}><p className="float-right">{author[idx]}</p></div>
-                <div className=" max-w-5 m-auto mt-20"><button className="submit bg-primary text-white px-6 rounded-lg  text-white px-8 py-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-transparent hover:text-red-700 hover:border-solid hover:border hover:border-red-700">VÁGJ BELE</button></div>
+                <div className=" max-w-5 m-auto mt-20"><Link href={'/gyakorlatok'}><button className="submit bg-primary text-white px-6 rounded-lg  text-white px-8 py-2 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:bg-transparent hover:text-red-700 hover:border-solid hover:border hover:border-red-700">VÁGJ BELE</button></Link></div>
               </div>
             </div>
           </div>

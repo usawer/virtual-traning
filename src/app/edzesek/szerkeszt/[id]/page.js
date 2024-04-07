@@ -7,7 +7,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import Left from "/src/components/icons/Left";
 import {redirect, useParams} from "next/navigation";
-import TorlesGombja from '@/components/TorlesGombja'
+import TorlesGombja from '@/components/TorlesGombja';
 
 
 

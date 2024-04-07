@@ -16,7 +16,9 @@ export default function Gyakorlatok() {
         })
     }, [])
     return(
+        
        <section className="mt-8 max-w-6xl m-auto">
+        <div className="text-center"><SectionHeaders mainHeader={"Gyakorlatok"} subHeader={"Ezen az oldalon gyakorlatokat böngészhetsz. A 'Mentés az edzéstervbe' gomb-al el tudod menteni őket saját edzéstervedbe, a 'Részletek' gomb alatt pedig tippeket és egyes gyakorlatok pontos leírását találod."}/></div>
         <img src="/izomzatElorol.jpg"></img>
        {kategoria?.length > 0 && kategoria.map(k => (
         // eslint-disable-next-line react/jsx-key

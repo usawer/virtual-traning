@@ -3,11 +3,13 @@
 import { useProfile } from "@/components/UsePorfile";
 import FelhTabs from "@/components/layout/FelhTabs";
 import KepFeltoltes from "@/components/layout/Kepfeltoltes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import Left from "../../../components/icons/Left";
 import {redirect} from "next/navigation";
+import SectionHeaders from "@/components/layout/SectionHeaders";
+
 
 export default function UjEdzes() {
     const [image, setImage] = useState('');
@@ -22,10 +24,20 @@ export default function UjEdzes() {
     const [nehezebb, setNehezebb] = useState('');
     const [redirectToItems, setRedirectToItems ] = useState(false);
     const { loading, data } = useProfile();
+    const [kategoriak, setKategoriak] = useState([]);
+    const [kategoria, setKategoria] = useState('');
+
+    useEffect(()=>{
+        fetch('/api/kategoria').then(res=>{
+            res.json().then(kategoria =>{
+                setKategoriak(kategoria);
+            })
+        })
+    },[]);
 
     async function handleFormSubmit(ev) { //Adatbázisba tölti az adott új edzésket
         ev.preventDefault();
-        const data = { image, nev, leiras, nehezseg, aktivizom, tippek, hogyan, eszkoz, konnyebb, nehezebb};
+        const data = { image, nev, leiras,kategoria, nehezseg, aktivizom, tippek, hogyan, eszkoz, konnyebb, nehezebb};
         const mentesPromise = new Promise(async(resolve, reject) => {
             const response = await fetch('/api/edzesek', {
                 method: 'POST',
@@ -59,18 +71,22 @@ export default function UjEdzes() {
     return (
         <section className="mt-8">
             <FelhTabs isAdmin={true} />
-            <div className="max-w-md mx-auto mt-8">
+            <div className="max-w-md mx-auto mt-8 text-center">
                 <Link href={'/edzesek'} className="button">
                 <Left></Left>
-                    <span>Vissza az összes Edzés elemre</span>
-                
+                    <span>Vissza az összes gyakorlat elemre</span>
                     </Link>
+                    <div className="my-10"><SectionHeaders mainHeader={"Gyakorlat létrehozás"}/></div>
             </div>
-            <form onSubmit={handleFormSubmit} className="mt-8 max-w-md mx-auto">
-                <div className="grid items-start gap-4">
+            <form onSubmit={handleFormSubmit} className="mt-8 max-w-6xl mx-auto">
+                <div className="flex flex-row gap-10">
+                    <div className="flex flex-col basis-1/2 m-auto">
                     <div>
                         <KepFeltoltes link={image} setLink={setImage} />
                     </div>
+                    </div>
+                    <div className="flex flex-col basis-1/2">
+                    
                     <div className="grow">
                         <label>Gyakorlat neve</label>
                         <input type="text" value={nev} onChange={ev => setNev(ev.target.value)} />
@@ -78,8 +94,15 @@ export default function UjEdzes() {
                         <label>Leírás</label>
                         <input type="text" value={leiras} onChange={ev => setLeiras(ev.target.value)} />
 
+                        <label>  Kategoriák</label>
+                        <select value={kategoria} onChange={ev => setKategoria(ev.target.value)}>
+            {kategoriak?.length > 0 && kategoriak.map(c => (
+              <option key={c._id} value={c._id}>{c.name}</option>
+            ))}</select>
+
                         <label>Nehézség</label>
                         <select value={nehezseg} onChange={ev => setNehezseg(ev.target.value)}>
+                            <option value="none">-Válassz nehézséget-</option>
                             <option value="Kezdő">Kezdő</option>
                             <option value="Középhaladó">Középhaladó</option>
                             <option value="Haladó">Haladó</option>
@@ -104,7 +127,8 @@ export default function UjEdzes() {
                         <label>Nehezebb variáció</label>
                         <input type="text" value={nehezebb} onChange={ev => setNehezebb(ev.target.value)} />
 
-                        <button type="submit">Mentés</button>
+                        <button type="submit" className="my-5">Mentés</button>
+                    </div>
                     </div>
                 </div>
             </form>

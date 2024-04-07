@@ -27,7 +27,8 @@ export default function RootLayout({ children }) {
         <Header/>
         {children}
         <footer className=" border-t p-6 text-center  text-gray-600 "> 
-         Felelősséget nem vállalunk! &copy; 2024 Minden jog fenntartva!
+         Felelősséget nem vállalunk! &copy; 2024 Minden jog fenntartva!<br></br>
+         A felhasznált gyakorlatok adatait a A Student's Anatomy of Exercise Manual című könyv biztosította.
     </footer>
     </AppProvider>
         </main>
