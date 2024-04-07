@@ -6,6 +6,7 @@ export async function POST(req){
     const data = await req.json();
     const EdzesItemDoc = await EdzesItem.create(data);
     return Response.json(EdzesItemDoc)
+    
 }
 
 export async function PUT(req){

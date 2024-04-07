@@ -9,7 +9,7 @@ export default function Slideshow() {
   const images = [["/slidehatter5.png"], ["/slidehatter4.jpg"], ["/slidehatter3.jpg"], ["/slidehatter2.jpg"], ["/slidehatter1.png"]];
   const quotes = [["„A siker létráját nem lehet zsebre tett kézzel megmászni.”"],["„Ami ma fáj, az tesz erősebbé holnap.”"],["„Az edzés nem csak a testedet formálja hanem a lelkedet is.”"],["„Ahhoz, hogy vezesd a zenekart, először hátat kell fordítanod a tömegnek.”"],["Az edzés fájdalmas, de a fájdalom ideiglenes, a siker viszont örökkévaló."]];
   const author = [["- Arnold Schwarzenegger"],["- Jay Cutler"],["- Arnold Schwarzenegger"],["- Mike Mentzer"],["- Muhhamad Ali"]];
-  const delay = 4000;
+  const delay = 8000;
 
   function resetTimeout() {
     if (timeoutRef.current) {

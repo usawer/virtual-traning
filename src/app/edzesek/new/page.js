@@ -14,12 +14,13 @@ export default function UjEdzes() {
     const [nev, setNev] = useState('');
     const [leiras, setLeiras] = useState('');
     const [nehezseg, setNehezseg] = useState('');
+    const [aktivizomresz, setAktivizomresz] = useState('');
     const [redirectToItems, setRedirectToItems ] = useState(false);
     const { loading, data } = useProfile();
 
     async function handleFormSubmit(ev) { //Adatbázisba tölti az adott új edzésket
         ev.preventDefault();
-        const data = { image, nev, leiras, nehezseg };
+        const data = { image, nev, leiras, nehezseg, aktivizomresz};
         const mentesPromise = new Promise(async(resolve, reject) => {
             const response = await fetch('/api/edzesek', {
                 method: 'POST',
@@ -32,9 +33,9 @@ export default function UjEdzes() {
                 reject()
         });
         await toast.promise(mentesPromise, {
-            loading: 'Edzés mentése folyamatban...',
+            loading: 'Gyakorlat mentése folyamatban...',
             success: 'Sikeresen elmentve!',
-            error: 'Hiba történt',
+            error: 'Hiba történt!',
         });
         setRedirectToItems(true);
     }
@@ -49,7 +50,7 @@ export default function UjEdzes() {
     if (!data.admin) {
         return 'Nem vagy admin';
     }
-
+    
     return (
         <section className="mt-8">
             <FelhTabs isAdmin={true} />
@@ -66,14 +67,22 @@ export default function UjEdzes() {
                         <KepFeltoltes link={image} setLink={setImage} />
                     </div>
                     <div className="grow">
-                        <label>Edzés videó neve</label>
+                        <label>Gyakorlat neve</label>
                         <input type="text" value={nev} onChange={ev => setNev(ev.target.value)} />
 
-                        <label>Edzés leírás</label>
+                        <label>Hogyan csináld?</label>
                         <input type="text" value={leiras} onChange={ev => setLeiras(ev.target.value)} />
 
-                        <label>Edzés szint</label>
-                        <input type="text" value={nehezseg} onChange={ev => setNehezseg(ev.target.value)} />
+                        <label>Nehézség</label>
+                        <select value={nehezseg} onChange={ev => setNehezseg(ev.target.value)}>
+                            <option value="Kezdő">Kezdő</option>
+                            <option value="Középhaladó">Középhaladó</option>
+                            <option value="Haladó">Haladó</option>
+                            <option value="Profi">Profi</option>
+                        </select>
+
+                        <label>Aktív izomrész</label>
+                        <input type="text" value={aktivizomresz} onChange={ev => setAktivizomresz(ev.target.value)} />
 
                         <button type="submit">Mentés</button>
                     </div>

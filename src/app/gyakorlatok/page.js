@@ -16,17 +16,19 @@ export default function Gyakorlatok() {
         })
     }, [])
     return(
-       <section class="mt-8">
+       <section className="mt-8 max-w-6xl m-auto">
+        <img src="/izomzatElorol.jpg"></img>
        {kategoria?.length > 0 && kategoria.map(k => (
         // eslint-disable-next-line react/jsx-key
         <div>
-            <div className="text-center ">
+            <div className="mt-5 mb-5">
             <SectionHeaders mainHeader={k.name}/>
 
             </div>
+            <hr></hr>
             {edzesItem.filter(item => item.kategoria === k._id).map(item => (
                 // eslint-disable-next-line react/jsx-key
-                <div className="grid grid-cols-3 gap-4 mt-4">
+                <div className="my-5">
                     <MenuItem {...item} />
                 </div>
             ))}

@@ -1,7 +1,9 @@
+
 import { Roboto } from 'next/font/google'
 import './globals.css'
 import {AppProvider} from "@/components/AppContext";
 import Header from "@/components/layout/Header";
+
 
 
 import { Toaster } from 'react-hot-toast';
@@ -13,6 +15,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="hu" className="scroll-smooth">
       <body className={roboto.className}>
@@ -23,8 +26,8 @@ export default function RootLayout({ children }) {
           </Toaster>
         <Header/>
         {children}
-        <footer className="border-t p-8 text-center  text-gray-600 "> 
-      &copy; 2024 Minden jog fenntartva!
+        <footer className=" border-t p-6 text-center  text-gray-600 "> 
+         Felelősséget nem vállalunk! &copy; 2024 Minden jog fenntartva!
     </footer>
     </AppProvider>
         </main>

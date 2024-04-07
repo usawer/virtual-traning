@@ -44,9 +44,9 @@ export default function Kategoriak(){
          reject();
         });
       await  toast.promise(creationPromise, {
-        loading: szerkeszettKatekoria ? 'Frissités folyamatban...' :'Új kategória keszítése folyamatban...',
-        success: szerkeszettKatekoria ? 'Sikeres szerkesztés': 'Sikeresen létrehozva az új Kategória',
-        error: szerkeszettKatekoria ? 'Sajnso nem sikerült frissíteni': 'Sajnos nem sikerült létrehozni',
+        loading: szerkeszettKatekoria ? 'Frissités folyamatban...' :'Új kategória létrehozása folyamatban...',
+        success: szerkeszettKatekoria ? 'Sikeres szerkesztés': 'Sikeresen létrehozva az új kategória',
+        error: szerkeszettKatekoria ? 'Nem sikerült frissíteni': 'Nem sikerült létrehozni',
         });
    
     }
@@ -77,9 +77,10 @@ export default function Kategoriak(){
 
     }
     return(
-        <section className="mt-8 max-w-lg mx-auto">
+        <section className="mt-8 ">
 
             <FelhTabs isAdmin={true} />
+            <div className="max-w-lg mx-auto">
             <form className="mt-8" onSubmit={addCategory}>
                 <div className="flex gap-2 items-end">
                     <div className="grow">
@@ -91,7 +92,7 @@ export default function Kategoriak(){
                     <input type="text" value={kategoriaNev} onChange={ev => setKategorianev(ev.target.value)}/>
                     </div>
                      <div className="pb-2 flex gap-2">
-                        <button className="border border-primary" type="submit">{szerkeszettKatekoria? 'Frissit' : 'Készít'}</button>
+                        <button className="border border-primary" type="submit">{szerkeszettKatekoria? 'Frissit' : 'Hozzáad'}</button>
                         <button type="button" onClick={()=> {setSzerkesztettKategoria(null); setKategorianev('');}}>Mégse</button>
                      </div>
                 </div>
@@ -103,7 +104,7 @@ export default function Kategoriak(){
         {categories?.length > 0 && categories.map(c => (
           <div
             key={c._id}
-            className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 mb-1 items-center">
+            className="bg-gray-100 rounded-xl p-2 px-4 flex gap-1 mb-1 items-center ">
             <div className="grow">
               {c.name}
             </div>
@@ -120,6 +121,7 @@ export default function Kategoriak(){
             </div>
           </div>
         ))}
+      </div>
       </div>
         </section>
     );

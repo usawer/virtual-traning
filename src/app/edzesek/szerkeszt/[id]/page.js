@@ -17,6 +17,7 @@ export default function SzerkesztEdzesItem(){
     const [nev, setNev] = useState('');
     const [leiras, setLeiras] = useState('');
     const [nehezseg, setNehezseg] = useState('');
+    const [aktivizomresz, setAktivizomresz] = useState('');
     const [redirectToItems, setRedirectToItems ] = useState(false);
     const { loading, data } = useProfile();
     const [kategoriak, setKategoriak] = useState([]);
@@ -39,13 +40,15 @@ fetch('/api/edzesek').then(res => {
         setNev(item.nev);
         setLeiras(item.leiras);
         setNehezseg(item.nehezseg);
+        setKategoria(item.kategoria);
+        setAktivizomresz(item.aktivizomresz);
     });
 })
     }, [id]);
 
     async function handleFormSubmit(ev) { //Adatbázisba tölti az adott új edzésket
         ev.preventDefault();
-        const data = { image, nev, leiras, nehezseg, _id:id, kategoria,};
+        const data = { image, nev, leiras,_id:id, kategoria, nehezseg, aktivizomresz};
         const mentesPromise = new Promise(async(resolve, reject) => {
             const response = await fetch('/api/edzesek', {
                 method: 'PUT',
@@ -94,7 +97,7 @@ fetch('/api/edzesek').then(res => {
     if (!data.admin) {
         return 'Nem vagy admin';
     }
-
+    
     return (
         <section className="mt-8">
             <FelhTabs isAdmin={true} />
@@ -111,18 +114,25 @@ fetch('/api/edzesek').then(res => {
                         <KepFeltoltes link={image} setLink={setImage} />
                     </div>
                     <div className="grow">
-                        <label>Edzés videó neve</label>
+                        <label>Gyakorlat neve</label>
                         <input type="text" value={nev} onChange={ev => setNev(ev.target.value)} />
 
-                        <label>Edzés leírás</label>
+                        <label>Hogyan csináld?</label>
                         <input type="text" value={leiras} onChange={ev => setLeiras(ev.target.value)} />
                         <label>  Kategoriák</label>
                         <select value={kategoria} onChange={ev => setKategoria(ev.target.value)}>
             {kategoriak?.length > 0 && kategoriak.map(c => (
               <option key={c._id} value={c._id}>{c.name}</option>
             ))}</select>
-                        <label>Edzés szint</label>
-                        <input type="text" value={nehezseg} onChange={ev => setNehezseg(ev.target.value)} />
+                        <label>Nehézség</label>
+                        <select value={nehezseg} onChange={ev => setNehezseg(ev.target.value)}>
+                            <option value="Kezdő">Kezdő</option>
+                            <option value="Középhaladó">Középhaladó</option>
+                            <option value="Haladó">Haladó</option>
+                            <option value="Profi">Profi</option>
+                        </select>
+                        <label>Aktív izomrész</label>
+                        <input type="text" value={aktivizomresz} onChange={ev => setAktivizomresz(ev.target.value)}/>
 
                         <button type="submit">Mentés</button>
                     </div>
