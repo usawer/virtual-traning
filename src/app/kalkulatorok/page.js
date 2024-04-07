@@ -388,7 +388,7 @@ export default function Calculators (){
                         setBPMeredmeny(parseInt((maxBpm-Pulzusszam) * 0.5) + parseInt(Pulzusszam))
                     }
                     else if(Eletkor2){
-                        setBPMeredmeny((maxBpm*0.85)+"-"+ (maxBpm*0.7));
+                        setBPMeredmeny((maxBpm*0.7)+" - "+ (maxBpm*0.85));
                         
                     }
                     else {
@@ -504,7 +504,7 @@ export default function Calculators (){
         
         <hr></hr>
         <div className="mt-20 text-center">
-            <SectionHeaders mainHeader={"Egy ismétléses max (1RM)"} subHeader={"Az 1RM meghatározása fontos a súlyzós edzés során, mivel lehetővé teszi az edzésterv optimalizálását és a progresszió nyomon követését. Az egyéni 1RM figyelembevétele lehetővé teszi az edzésintenzitás megfelelő beállítását az adott személy számára, ami segíthet az erő és az izomtömeg növelésében. "}/>
+            <SectionHeaders mainHeader={"1RM (Egy ismétléses maximum)"} subHeader={"Az 1RM meghatározása fontos a súlyzós edzés során, mivel lehetővé teszi az edzésterv optimalizálását és a progresszió nyomon követését. Az egyéni 1RM figyelembevétele lehetővé teszi az edzésintenzitás megfelelő beállítását az adott személy számára, ami segíthet az erő és az izomtömeg növelésében. "}/>
         </div>
         <div className="flex flex-row">
             <div className="flex flex-col basis-1/2 my-5">

@@ -3,7 +3,7 @@
 import {useEffect, useState} from "react";
 import Link from "next/link";
 
-export default function MenuItem({image,nev,nehezseg,aktivizomresz}){
+export default function MenuItem({image,nev,nehezseg,aktivizom,tipp}){
     
     const [EdzesItem, setEdzesItem] = useState([]);
 
@@ -25,7 +25,7 @@ export default function MenuItem({image,nev,nehezseg,aktivizomresz}){
                 <h4 className="">Nehézség:</h4>
                 <h4 className=" ">Aktív izomrészek:</h4>
             </div>
-            <div className="flex flex-col mx-5"><h4>{nehezseg}</h4><h4>{aktivizomresz}</h4></div>
+            <div className="flex flex-col mx-5"><h4>{nehezseg}</h4><h4>{aktivizom}</h4></div>
             </div>
         </div>
         <div className="flex flex-col basis-1/3">

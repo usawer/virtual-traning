@@ -14,13 +14,18 @@ export default function UjEdzes() {
     const [nev, setNev] = useState('');
     const [leiras, setLeiras] = useState('');
     const [nehezseg, setNehezseg] = useState('');
-    const [aktivizomresz, setAktivizomresz] = useState('');
+    const [aktivizom, setAktivizom] = useState('');
+    const [tippek, setTippek] = useState('');
+    const [hogyan, setHogyan] = useState('');
+    const [eszkoz, setEszkoz] = useState('');
+    const [konnyebb, setKonyebb] = useState('');
+    const [nehezebb, setNehezebb] = useState('');
     const [redirectToItems, setRedirectToItems ] = useState(false);
     const { loading, data } = useProfile();
 
     async function handleFormSubmit(ev) { //Adatbázisba tölti az adott új edzésket
         ev.preventDefault();
-        const data = { image, nev, leiras, nehezseg, aktivizomresz};
+        const data = { image, nev, leiras, nehezseg, aktivizom, tippek, hogyan, eszkoz, konnyebb, nehezebb};
         const mentesPromise = new Promise(async(resolve, reject) => {
             const response = await fetch('/api/edzesek', {
                 method: 'POST',
@@ -70,7 +75,7 @@ export default function UjEdzes() {
                         <label>Gyakorlat neve</label>
                         <input type="text" value={nev} onChange={ev => setNev(ev.target.value)} />
 
-                        <label>Hogyan csináld?</label>
+                        <label>Leírás</label>
                         <input type="text" value={leiras} onChange={ev => setLeiras(ev.target.value)} />
 
                         <label>Nehézség</label>
@@ -82,7 +87,22 @@ export default function UjEdzes() {
                         </select>
 
                         <label>Aktív izomrész</label>
-                        <input type="text" value={aktivizomresz} onChange={ev => setAktivizomresz(ev.target.value)} />
+                        <input type="text" value={aktivizom} onChange={ev => setAktivizom(ev.target.value)} />
+
+                        <label>Tippek</label>
+                        <input type="text" value={tippek} onChange={ev => setTippek(ev.target.value)} />
+
+                        <label>Hogyan csináld?</label>
+                        <input type="text" value={hogyan} onChange={ev => setHogyan(ev.target.value)} />
+
+                        <label>Eszközszükséglet</label>
+                        <input type="text" value={eszkoz} onChange={ev => setEszkoz(ev.target.value)} />
+
+                        <label>Könnyebb variáció</label>
+                        <input type="text" value={konnyebb} onChange={ev => setKonyebb(ev.target.value)} />
+
+                        <label>Nehezebb variáció</label>
+                        <input type="text" value={nehezebb} onChange={ev => setNehezebb(ev.target.value)} />
 
                         <button type="submit">Mentés</button>
                     </div>

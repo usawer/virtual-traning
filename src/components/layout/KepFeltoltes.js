@@ -29,8 +29,8 @@ export default function Kepfeltoltes({link, setLink}){
        
                 await toast.promise(feltoltesPromise, {
                     loading: 'Feltöltés...',
-                    success: 'Feltöltés sikreses!',
-                    error: 'Feltöltés nem sikerült!',
+                    success: 'Sikeres feltöltés!',
+                    error: 'A feltöltés nem sikerült!',
                 });
            
         }
