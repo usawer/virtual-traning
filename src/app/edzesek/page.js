@@ -30,11 +30,11 @@ export default function Edzesek(){
         <FelhTabs isAdmin={true}/>
         <div className="max-w-3xl  mx-auto">
         <div className="m-auto mt-8 max-w-sm"> 
-        <Link  href={'/edzesek/new/' } className="submit button">Új edzés készítés</Link>
+        <Link  href={'/edzesek/new/' } className="submit button">Új gyakorlat hozzáadása</Link>
 
         </div>
       <div>
-        <h2 className="text-sm text-gray-500 mt-8 ">Edzes elemek szerkesztése</h2>
+        <h2 className="text-sm text-gray-500 mt-8 ">Gyakorlat elemek szerkesztése</h2>
         <div className="grid grid-cols-4 gap-2">
         {EdzesItem?.length > 0 && EdzesItem.map(item => (
   <Link  href={'/edzesek/szerkeszt/'+item._id} className="bg-gray-300 rounded-lg p-4 "key={item.nev}>
