@@ -29,8 +29,8 @@ export default function Kepfeltoltes({link, setLink}){
        
                 await toast.promise(feltoltesPromise, {
                     loading: 'Feltöltés...',
-                    success: 'Feltöltés sikreses!',
-                    error: 'Feltöltés nem sikerült!',
+                    success: 'Sikeres feltöltés!',
+                    error: 'A feltöltés nem sikerült!',
                 });
            
         }
@@ -43,7 +43,7 @@ export default function Kepfeltoltes({link, setLink}){
                             )}
                         <label>
                         <input type="file" className="hidden" onChange={handleFileChange}/>
-                        <span className="block border border-red-500 rounded-lg p-2 text-center cursor-pointer">Szerkesztés</span>
+                        <span className="block border border-red-500 rounded-lg p-2 text-center cursor-pointer">Kép hozzáadása / szerkesztése</span>
                         </label>
 
 </>

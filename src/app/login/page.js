@@ -18,10 +18,10 @@ export default function LoginPage() {
          setLoginProgress(false);
     }
     return(
-        <section className="bg-red-700 pt-20 pb-20">
-            
+        <section className="bg-red-700 py-20">
+        
             <div className="text-center mb-5 font-bold text-4xl text-white italic"><h1>Bejelentkezés</h1></div>
-        <div className="bg-white max-w-sm m-auto pt-10 pb-10 rounded-3xl shadow-2xl">        
+        <div className="bg-white max-w-sm m-auto pt-10 pb-10 rounded-3xl shadow-3xl">        
         <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>
         <div className="flex flex-row">
         <div className="flex flex-col basis-1/6">
@@ -53,6 +53,8 @@ export default function LoginPage() {
             </button>
         </form>
         </div>
+        
         </section>
+        
     );
 }

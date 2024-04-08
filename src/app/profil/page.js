@@ -43,7 +43,7 @@ export default function ProfilPage() {
     });
       await toast.promise(savingPromise,{
         loading: 'Mentés folyamatban!...',
-        success: 'Metnve sikeresen!',
+        success: 'Sikeresen mentve!',
         error: 'Nem sikerült a mentés!',
       });
     }

@@ -7,15 +7,16 @@ export default function FelhTabs({isAdmin}){
     const path = usePathname();
 
     return(
-        <div className="flex mx-auto gap-2 tabs justify-center ">
+        <div className="flex mx-auto border-b tabs justify-center  ">
         <Link className={path === '/profil' ? 'active' : ''} href={'/profil'}>Profil</Link>
-        <Link  className={path === '/edzeseim' ? 'active' : ''} href={'/felhasznalok'}>Edzeseim</Link>
+        <Link  className={path.includes('/edzesterv') ? 'active' : ''} href={'/edzesterv'}>Edzésterv</Link>
 
         {isAdmin &&(
             <>
-            <Link className={path === '/kategoria' ? 'active' : ''} href={'/kategoria'}>Kategoriak</Link>
-            <Link  className={path === '/edzesek' ? 'active' : ''} href={'/edzesek'}>Edzesek</Link>
-            <Link  className={path.includes('/felhasznalok') ? 'active' : ''} href={'/felhasznalok'}>Felhasznalok</Link>
+            <Link className={path === '/kategoria' ? 'active' : ''} href={'/kategoria'}>Kategóriák</Link>
+            <Link  className={path === '/edzesek' ? 'active' : ''} href={'/edzesek'}>Gyakorlatok</Link>
+            <Link  className={path.includes('/felhasznalok') ? 'active' : ''} href={'/felhasznalok'}>Felhasználók</Link>
+            
             </>
         )}
     </div>

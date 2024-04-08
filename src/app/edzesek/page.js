@@ -26,15 +26,16 @@ export default function Edzesek(){
         return 'Nem vagy ADMIN';
     }
     return(
-      <section className="mt-8 max-w-md mx-auto">
+      <section className="mt-8">
         <FelhTabs isAdmin={true}/>
-        <div className="mt-8"> 
-        <Link  href={'/edzesek/new/' } className="button">Új edzés készítés</Link>
+        <div className="max-w-3xl  mx-auto">
+        <div className="m-auto mt-8 max-w-sm"> 
+        <Link  href={'/edzesek/new/' } className="submit button">Új edzés készítés</Link>
 
         </div>
       <div>
         <h2 className="text-sm text-gray-500 mt-8 ">Edzes elemek szerkesztése</h2>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-4 gap-2">
         {EdzesItem?.length > 0 && EdzesItem.map(item => (
   <Link  href={'/edzesek/szerkeszt/'+item._id} className="bg-gray-300 rounded-lg p-4 "key={item.nev}>
     <div className="relative ">
@@ -47,7 +48,7 @@ export default function Edzesek(){
     </Link>
 ))}
         </div>
-
+        </div>
       </div>
 
       </section>

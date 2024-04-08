@@ -1,0 +1,81 @@
+body{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.wrapper {
+    height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    overflow-x: hidden;
+    perspective: 10px;
+  }
+  
+  .pageheader {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+  }
+  
+  .background {
+    transform: translateZ(-10px) scale(2);
+  }
+  
+  .foreground {
+    transform: translateZ(-5px) scale(0,3);
+  }
+  
+  .background,
+  .foreground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .title {
+    font-size: 8rem;
+    color: red;
+    text-shadow: 0 0 5px black;;
+  }
+  
+  .pagesection {
+    font-size: 2rem;
+    padding-bottom: 20px;
+    background-color: #333;
+    color: white;
+  }
+@page{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.alcím{
+  text-align: center;
+  font-size: 5rem;
+  padding-top: 40px;
+  color: red;
+}
+.bemutatkozo{
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 30px;
+}
+.idezet{
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+ background-color: black;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
+}
+
+

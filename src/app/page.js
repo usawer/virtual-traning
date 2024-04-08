@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Hero from "@/components/layout/Hero";
+import Slideshow from "@/components/layout/Slideshow";
 import HomeMenu from "@/components/layout/HomeMenu";
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import MenuItem from "@/components/menu/MenuItem";
@@ -7,20 +7,25 @@ import MenuItem from "@/components/menu/MenuItem";
 export default function Home() {
   return (
     <>
-    
-    
-    <Hero/>
-   
-    <section className="text-center my-16">
-      <SectionHeaders subHeader={'Egyéb'} mainHeader={'Rólunk'}/>
-      <div className="text-gray-500 max-w-2xl mx-auto mt-4 flex-col gap-4">
-      <p > 
-       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the  standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-      </p></div>
+    <Slideshow/>
+    <hr className="mt-2"></hr>
+    <section className="text-center">
+      <div className="flex flex-row">
+        <div className="flex flex-col basis-1/3 pt-5 py-5">
+          <SectionHeaders mainHeader={"Kategorizált gyakorlatok"}/>
+          <p className="text-xl mt-5">Gyakorlatok tárháza, tippekkel, tanácsokkal, profiktól kezdőknek.</p>
+        </div>
+        <div className="flex flex-col basis-1/3 bg-gray-200 py-5">
+          <SectionHeaders mainHeader={"Kalkulátorok"}/>
+          <p className="text-xl mt-5">Kalkulátorok melyek elengedhetetlenek testünk fejlődésének nyomonkövetéséhez.</p>
+        </div>
+        <div className="flex flex-col basis-1/3 py-5">
+          <SectionHeaders mainHeader={"Edzésterv összeállító"}/>
+          <p className="text-xl mt-5">Rendszerezett, szerkezthető edzésterv, hogy sose felejtsd el melyik gyakorlat van soron.</p>
+        </div>
+      </div>
     </section>
-    <section className="text-center my-8">
-      <SectionHeaders subHeader={"Kezd el most!"}  mainHeader={"Kontakt"} />
-    </section>    
+     
  
     </>
   )
