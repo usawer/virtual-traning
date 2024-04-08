@@ -84,7 +84,7 @@ export default function Kategoriak(){
             <form className="mt-8" onSubmit={addCategory}>
                 <div className="flex gap-2 items-end">
                     <div className="grow">
-                    <label>{szerkeszettKatekoria ? 'Frissit' : "Új kategória neve"} 
+                    <label>{szerkeszettKatekoria ? 'Frissit' : "Új Kategoriak neve"} 
                     {szerkeszettKatekoria &&( 
                     <>: <b>{szerkeszettKatekoria.name}</b></>
                     )}
@@ -100,7 +100,7 @@ export default function Kategoriak(){
                 
             </form>
             <div>
-        <h2 className="mt-8 text-sm text-gray-500">Kategóriák:</h2>
+        <h2 className="mt-8 text-sm text-gray-500">Kategóriak:</h2>
         {categories?.length > 0 && categories.map(c => (
           <div
             key={c._id}

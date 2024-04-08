@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useProfile } from "../UsePorfile";
-import SectionHeaders from "./SectionHeaders";
 
 export default function FelhInfo({ user, onSave }) {
     const [username, setUsername] = useState(user?.name || '');
@@ -40,8 +39,6 @@ export default function FelhInfo({ user, onSave }) {
 
 
     return (
-        <div>
-        <div className=""><SectionHeaders mainHeader={"Üdvözöljük"}/></div>
         <div className="flex gap-2">
             <div>
                 <div className="p-2 rounded-lg relative max-w-[150px]">
@@ -76,10 +73,9 @@ export default function FelhInfo({ user, onSave }) {
             </label>
           </div>
         )}
-                    <button type="submit" className="mb-5">Mentés</button>
+                    <button type="submit" >Mentés</button>
                 </form>
             </div>
-        </div>
         </div>
     );
 }
